@@ -6,6 +6,9 @@ final color STROKE_COLOR = color(250, 150, 150);                //this indicates
 final int CIRCLE_SIZE = 50;                                     //this indicates the size of the circle and we can change the variable
 
 
+final int CurrentCircleSize = 5 ;                                //I added another function
+int CircleSize = 6 ;
+
 int circleX;                                                    // the name of the variables
 int circleY;
 int circleVX;
@@ -30,7 +33,7 @@ void draw() {
   else {
     fill(NO_CLICK_FILL_COLOR);
   }
-  ellipse(circleX, circleY, CIRCLE_SIZE, CIRCLE_SIZE);                          //creates an ellipse in a certain position and size of the circle                     
+  ellipse(circleX, circleY, CIRCLE_SIZE, CurrentCircleSize);                          //creates an ellipse in a certain position and size of the circle  //I changed CIRCLE_SIZE to CurrentCircle Size                   
   circleX += circleVX;
   circleY += circleVY;
   if (circleX + CIRCLE_SIZE/2 > width || circleX - CIRCLE_SIZE/2 < 0) {         //the circleX + the circleVX . So the circle width in addition of the circle speed 7      
