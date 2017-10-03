@@ -1,10 +1,17 @@
-color backgroundColor = color(0);
+// General "what it does" : when the cube touches or reaches the rectangle at the bottom it sends a messages to bounce back , instead of going through ... \
+// the rectangle covers a small area , so it moves along with the mouse and moves the rectangle/ bar from the bottom.
+// the square loops and moves ramdonly 
 
+//Properties
+color backgroundColor = color(0);
+//
 int numStatic = 1000;
 int staticSizeMin = 1;
 int staticSizeMax = 3;
 color staticColor = color(200);
 
+
+//these are the properties of the paddle
 int paddleX;
 int paddleY;
 int paddleVX;
@@ -13,6 +20,7 @@ int paddleWidth = 128;
 int paddleHeight = 16;
 color paddleColor = color(255);
 
+//these are the properties of the ball
 int ballX;
 int ballY;
 int ballVX;
@@ -21,21 +29,26 @@ int ballSpeed = 5;
 int ballSize = 16;
 color ballColor = color(255);
 
+
+//this set up the 2 functions
 void setup() {
   size(640, 480);
-  
+
   setupPaddle();
   setupBall();
 }
 
+
+// this setup the paddle at the bottom _center
 void setupPaddle() {
   paddleX = width/2;
   paddleY = height - paddleHeight;
   paddleVX = 0;
 }
 
+// this setup the start of the ball at the center of the display
 void setupBall() {
-  ballX = width/2;
+  ballX = width/2 ;
   ballY = height/2;
   ballVX = ballSpeed;
   ballVY = ballSpeed;
@@ -55,23 +68,23 @@ void draw() {
 
 void drawStatic() {
   for (int i = 0; i < numStatic; i++) {
-   float x = random(0,width);
-   float y = random(0,height);
-   float staticSize = random(staticSizeMin,staticSizeMax);
-   fill(staticColor);
-   rect(x,y,staticSize,staticSize);
+    float x = random(0, width);
+    float y = random(0, height);
+    float staticSize = random(staticSizeMin, staticSizeMax);
+    fill(staticColor);
+    rect(x, y, staticSize, staticSize);
   }
 }
 
 void updatePaddle() {
   paddleX += paddleVX;  
-  paddleX = constrain(paddleX,0+paddleWidth/2,width-paddleWidth/2);
+  paddleX = constrain(paddleX, 0+paddleWidth/2, width-paddleWidth/2);
 }
 
 void updateBall() {
   ballX += ballVX;
   ballY += ballVY;
-  
+
   handleBallHitPaddle();
   handleBallHitWall();
   handleBallOffBottom();
@@ -126,13 +139,14 @@ void handleBallHitWall() {
     ballX = width - ballSize/2;
     ballVX = -ballVX;
   }
-  
+
   if (ballY - ballSize/2 < 0) {
     ballY = 0 + ballSize/2;
     ballVY = -ballVY;
   }
 }
 
+// when the key left or right is pressed the paddle will increase its speed in the left or right direction
 void keyPressed() {
   if (keyCode == LEFT) {
     paddleVX = -paddleSpeed;
@@ -141,6 +155,7 @@ void keyPressed() {
   }
 }
 
+// when the key left or right is Released the paddle will stop moving
 void keyReleased() {
   if (keyCode == LEFT && paddleVX < 0) {
     paddleVX = 0;
