@@ -3,29 +3,30 @@
 // the square loops and moves ramdonly 
 
 //Properties
-color backgroundColor = color(0);
-//
+color backgroundColor = color(255);
+// this gives a noise background effect.
 int numStatic = 1000;
-int staticSizeMin = 1;
-int staticSizeMax = 3;
-color staticColor = color(200);
-
+// this changes the size if the rectangle or shape of the STATIC effect.
+int staticSizeMin = 5;
+int staticSizeMax = 20;
+color staticColor = color(0,150,0);
+PImage sMiley = loadImage ("https://upload.wikimedia.org/wikipedia/en/1/12/Yellow_Smiley_Face.png");
 
 //these are the properties of the paddle
 int paddleX;
 int paddleY;
 int paddleVX;
-int paddleSpeed = 10;
-int paddleWidth = 128;
+int paddleSpeed = 20;
+int paddleWidth = 200;
 int paddleHeight = 16;
-color paddleColor = color(255);
+color paddleColor = color(0,255,0);
 
 //these are the properties of the ball
 int ballX;
 int ballY;
 int ballVX;
 int ballVY;
-int ballSpeed = 5;
+int ballSpeed = 3;
 int ballSize = 16;
 color ballColor = color(255);
 
@@ -65,7 +66,7 @@ void draw() {
   drawPaddle();
   drawBall();
 }
-
+// this function 
 void drawStatic() {
   for (int i = 0; i < numStatic; i++) {
     float x = random(0, width);
@@ -73,6 +74,7 @@ void drawStatic() {
     float staticSize = random(staticSizeMin, staticSizeMax);
     fill(staticColor);
     rect(x, y, staticSize, staticSize);
+    
   }
 }
 
@@ -130,7 +132,7 @@ void handleBallOffBottom() {
 boolean ballOffBottom() {
   return (ballY - ballSize/2 > height);
 }
-
+// this is the bounce effect : when the ball hit the wall at it's extremities it will bounce_back.
 void handleBallHitWall() {
   if (ballX - ballSize/2 < 0) {
     ballX = 0 + ballSize/2;
