@@ -28,7 +28,7 @@ int ballVX;
 int ballVY;
 int ballSpeed = 3;
 int ballSize = 16;
-color ballColor = color(255);
+color ballColor = color(0);
 
 
 //this set up the 2 functions
@@ -108,7 +108,7 @@ void drawBall() {
 
 void handleBallHitPaddle() {
   if (ballOverlapsPaddle()) {
-    ballY = paddleY - paddleHeight/2 - ballSize/2;
+    ballY = paddleY - paddleHeight/2 + ballSize/2;
     ballVY = -ballVY;
   }
 }
