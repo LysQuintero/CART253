@@ -5,6 +5,8 @@
 // two paddles that they control.
 //
 // No scoring. (Yet!)
+//Ideas of scoring : I can add printed numbers on the window each time the ball scapes the paddle (scores) ///
+//SO addition of numbers and println ??
 // No score display. (Yet!)
 // Pretty ugly. (Now!)
 // Only two paddles. (So far!)
@@ -14,6 +16,9 @@ Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
 
+// TEXT : font variable (declare)
+PFont f ;
+
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
@@ -21,9 +26,15 @@ int PADDLE_INSET = 8;
 color backgroundColor = color(0);
 
 
+
 // setup()
 //
-// Sets the size and creates the paddles and ball
+
+
+
+//void setup() {
+ 
+// Sets the size and creates the paddles and ball //sets up the fonts :
 
 void setup() {
   // Set the size
@@ -39,16 +50,29 @@ void setup() {
 
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
+  
+  /// TEXT
+   //size (10,10);
+  f= createFont("Arial",16,true) ; 
 }
+
 
 // draw()
 //
+
+
 // Handles all the magic of making the paddles and ball move, checking
 // if the ball has hit a paddle, and displaying everything.
 
 void draw() {
+ // FONT: Specify font to be used , then specify font color , then display text
+  textFont(f,16);
+  fill(0);
+  text("PONG!" , 10 ,100);
+
+  
   // Fill the background each frame so we have animation
-  background(backgroundColor);
+  //background(backgroundColor);
 
   // Update the paddles and ball by calling their update methods
   leftPaddle.update();
