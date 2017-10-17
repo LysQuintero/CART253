@@ -28,11 +28,7 @@ color backgroundColor = color(0);
 
 
 // setup()
-//
-
-
-
-//void setup() {
+////void setup() {
  
 // Sets the size and creates the paddles and ball //sets up the fonts :
 
@@ -58,21 +54,18 @@ void setup() {
 
 
 // draw()
-//
-
-
-// Handles all the magic of making the paddles and ball move, checking
+/// Handles all the magic of making the paddles and ball move, checking
 // if the ball has hit a paddle, and displaying everything.
 
 void draw() {
  // FONT: Specify font to be used , then specify font color , then display text
   textFont(f,16);
-  fill(0);
+  fill(255);
   text("PONG!" , 10 ,100);
 
   
   // Fill the background each frame so we have animation
-  //background(backgroundColor);
+  background(backgroundColor);
 
   // Update the paddles and ball by calling their update methods
   leftPaddle.update();
