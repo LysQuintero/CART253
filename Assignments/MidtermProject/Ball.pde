@@ -124,6 +124,7 @@ class Ball {
     rectMode(CENTER);
 
     // Draw the ball
-    rect(x, y, SIZE, SIZE);
+    fill(0,255,0);
+    ellipse(x, y, 50, 50);
   }
 }
