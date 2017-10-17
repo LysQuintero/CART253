@@ -58,14 +58,17 @@ void setup() {
 // if the ball has hit a paddle, and displaying everything.
 
 void draw() {
+    // Fill the background each frame so we have animation
+  background(backgroundColor);
+  
+  
  // FONT: Specify font to be used , then specify font color , then display text
   textFont(f,16);
   fill(255);
   text("PONG!" , 10 ,100);
 
   
-  // Fill the background each frame so we have animation
-  background(backgroundColor);
+
 
   // Update the paddles and ball by calling their update methods
   leftPaddle.update();
@@ -80,6 +83,10 @@ void draw() {
   if (ball.isOffScreen()) {
     // If it has, reset the ball
     ball.reset();
+    //the scores is always changing when the ball goes off the screen 
+    ball.score = ball.score -1;
+   // ball.score = ball.score > 1 ;
+    ball.reset = ;
   }
 
   // Display the paddles and the ball

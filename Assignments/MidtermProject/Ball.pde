@@ -19,6 +19,8 @@ class Ball {
   // The velocity of the ball
   int vx;
   int vy;
+  
+  int score;
 
   // The colour of the ball
   color ballColor = color(255);
@@ -40,6 +42,7 @@ class Ball {
     y = _y;
     vx = SPEED;
     vy = SPEED;
+    score = 10;
   }
 
 
@@ -125,6 +128,6 @@ class Ball {
 
     // Draw the ball
     fill(0,255,0);
-    ellipse(x, y, 50, 50);
+    ellipse(x, y, score, score);
   }
 }
