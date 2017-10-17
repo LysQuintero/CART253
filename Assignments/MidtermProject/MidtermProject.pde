@@ -85,8 +85,9 @@ void draw() {
     ball.reset();
     //the scores is always changing when the ball goes off the screen 
     ball.score = ball.score -1;
-   // ball.score = ball.score > 1 ;
-    ball.reset = ;
+    //ATTEMPT : if the numbers of the scores are hits the 0 , reset the ball and the score track.
+   if (ball.score = ball.score < -1 );
+    ball.reset();
   }
 
   // Display the paddles and the ball
