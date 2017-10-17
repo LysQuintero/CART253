@@ -19,9 +19,9 @@ class Ball {
   // The velocity of the ball
   int vx;
   int vy;
-  
+  ///SCORE
   int score;
-
+  
   // The colour of the ball
   color ballColor = color(255);
 
@@ -76,6 +76,9 @@ class Ball {
     y = height/2;
   }
   
+  void resetScore() {
+    score= 10 ;
+  }
   // isOffScreen()
   //
   // Returns true if the ball is off the left or right side of the window

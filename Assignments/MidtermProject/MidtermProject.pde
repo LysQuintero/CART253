@@ -65,7 +65,7 @@ void draw() {
  // FONT: Specify font to be used , then specify font color , then display text
   textFont(f,16);
   fill(255);
-  text("PONG!" , 300 ,100);
+  text("PONG!",300,100);
 
   
 
@@ -80,14 +80,16 @@ void draw() {
   ball.collide(rightPaddle);
 
   // Check if the ball has gone off the screen
-  if (ball.isOffScreen()) {
+  if (ball.isOffScreen())  {
     // If it has, reset the ball
     ball.reset();
     //the scores is always changing when the ball goes off the screen 
     ball.score = ball.score -1;
-    //ATTEMPT : if the numbers of the scores are hits the 0 , reset the ball and the score track.
-   //if (ball.scoreLesstThanZero());
-    //ball.reset();
+    // ball.reset();
+    
+  //WORKS  : if the numbers of the scores are hits the 0 , reset the ball and the score track.
+  if (ball.score < 0)
+   ball.resetScore();
   }
 
   // Display the paddles and the ball
