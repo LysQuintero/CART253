@@ -128,6 +128,7 @@ class Ball {
 
     // Draw the ball
     fill(0,255,0);
-    ellipse(x, y, score, score);
+    ///intead of size we replace by SCORE , the ball will show the score visually by changing its size.
+    ellipse(x, y, score, score);  
   }
 }

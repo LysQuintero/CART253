@@ -65,7 +65,7 @@ void draw() {
  // FONT: Specify font to be used , then specify font color , then display text
   textFont(f,16);
   fill(255);
-  text("PONG!" , 10 ,100);
+  text("PONG!" , 300 ,100);
 
   
 
@@ -86,8 +86,8 @@ void draw() {
     //the scores is always changing when the ball goes off the screen 
     ball.score = ball.score -1;
     //ATTEMPT : if the numbers of the scores are hits the 0 , reset the ball and the score track.
-   if (ball.score = ball.score < -1 );
-    ball.reset();
+   //if (ball.scoreLesstThanZero());
+    //ball.reset();
   }
 
   // Display the paddles and the ball
