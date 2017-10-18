@@ -65,7 +65,7 @@ void draw() {
  // FONT: Specify font to be used , then specify font color , then display text
   textFont(f,16);
   fill(255);
-  text("PONG!",300,100);
+  text("PONG!",width/2,height/2);
 
   
 
