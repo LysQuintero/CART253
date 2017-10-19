@@ -10,9 +10,9 @@
 //Ideas of scoring : I can add printed numbers on the window each time the ball scapes the paddle (scores) ///
 //SO addition of numbers and println ??
 // No score display. (Yet!)
-// Pretty ugly. (Now!)
+// Pretty ugly. (forever!)
 // Only two paddles. (So far!)
-//----------------------------------------------
+/////----------------------------------------
 // Global variables for the paddles and the ball
 //----------------------------------------------
 Paddle leftPaddle;
@@ -39,21 +39,20 @@ int startTimeMs;
 
 //-------------------------------------------------
 // The time until the game starts, in milliseconds
-// (easy to convert to seconds, sec = ms/1000)
-//------------------------------------------------
+ // (easy to convert to seconds, sec = ms/1000)
+ //------------------------------------------------
  final int startDelayMs = 3000;
  boolean atStartup = true;
   
  String displayname;
 
-//--------------------------------------------------
+//-----------------------------
 // setup()
 ////void setup() {
  
 // Sets the size and creates the paddles and ball //sets up the fonts :
 //------------------------------------------------------------------------
 void setup() {
-  
   //------------------
   // Set the size
   //------------------
@@ -90,29 +89,22 @@ void setup() {
 
 
 
-//---------------------------------------------------------------------
+
 // draw()
 /// Handles all the magic of making the paddles and ball move, checking
 // if the ball has hit a paddle, and displaying everything.
-//---------------------------------------------------------------------
 
 void draw() {
   
  
    if (atStartup) {
-     //----------------------------------
      // The current time, in milliseconds
-     //----------------------------------
      int curTimeMs = millis();
-     //-----------------------------------------
      // The remaining time in the startup period
-     //-----------------------------------------
      int startupTimeRemainingMs = startDelayMs - (curTimeMs - startTimeMs);
      startScreen(startupTimeRemainingMs);
      atStartup = startupTimeRemainingMs > 0;
-     //--------------------------------------------------
      // Short-circuit if we're still in the startup phase.
-     //---------------------------------------------------
      return;
    }
     background(0);
@@ -121,7 +113,7 @@ void draw() {
    text("GO!", 750/2, 750/2);
    
  
- //-----------------------------------------------------------------------------
+ 
  //end of timer
  
     // Fill the background each frame so we have animation
@@ -132,8 +124,6 @@ void draw() {
   //fill(255);
   
   //text("Start PONG Game!",width/2,height/2);
-  
-  //--------------------------------------------
 
 
   // Update the paddles and ball by calling their update methods
