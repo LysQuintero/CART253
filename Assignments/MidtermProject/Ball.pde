@@ -23,7 +23,7 @@ class Ball {
   int score;
   
   // The colour of the ball
-  color ballColor = color(255);
+  color ballColor = color(255,0,0);
 
 
   /////////////// Constructor ///////////////
@@ -130,7 +130,7 @@ class Ball {
     rectMode(CENTER);
 
     // Draw the ball
-    fill(0,255,0);
+    fill(ballColor);
     ///intead of size we replace by SCORE , the ball will show the score visually by changing its size.
     ellipse(x, y, score, score);  
   }

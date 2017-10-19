@@ -12,54 +12,77 @@
 // No score display. (Yet!)
 // Pretty ugly. (Now!)
 // Only two paddles. (So far!)
-/////----------------------------------------
+//----------------------------------------------
 // Global variables for the paddles and the ball
+//----------------------------------------------
 Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
 Gameover gameover;
 
+//---------------------------------
 // TEXT : font variable (declare)
+//----------------------------------
 PFont f ;
 
+//-------------------------------------------------------------
 // The distance from the edge of the window a paddle should be
+//--------------------------------------------------------------
 int PADDLE_INSET = 8;
 
+//-------------------------------------------
 // The background colour during play (black)
+//-------------------------------------------
 color backgroundColor = color(255,0,0);
 int startTimeMs;
- // The time until the game starts, in milliseconds
- // (easy to convert to seconds, sec = ms/1000)
+
+
+//-------------------------------------------------
+// The time until the game starts, in milliseconds
+// (easy to convert to seconds, sec = ms/1000)
+//------------------------------------------------
  final int startDelayMs = 3000;
  boolean atStartup = true;
   
  String displayname;
 
+//--------------------------------------------------
 // setup()
 ////void setup() {
  
 // Sets the size and creates the paddles and ball //sets up the fonts :
-
+//------------------------------------------------------------------------
 void setup() {
+  
+  //------------------
   // Set the size
+  //------------------
   size(750, 750);
   
+  //------------------------------
   // Current time, in milliseconds
+  //------------------------------
  startTimeMs = millis();
-
+ 
+//--------------------------------------------------------------------------------
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
   // Also pass through the two keys used to control 'up' and 'down' respectively
   // NOTE: On a mac you can run into trouble if you use keys that create that popup of
   // different accented characters in text editors (so avoid those if you're changing this)
+  //----------------------------------------------------------------------------------------
   leftPaddle = new Paddle(PADDLE_INSET, height/2, '1', 'q');
   rightPaddle = new Paddle(width - PADDLE_INSET, height/2, '0', 'p');
-
+  
+  //----------------------------------------------
   // Create the ball at the centre of the screen
+  //----------------------------------------------
   ball = new Ball(width/2, height/2);
   
+  //-----------------------------------
   /// TEXT
    //size (10,10);
+   //--------------------------------
   f= createFont("Arial",16,true); 
   
   
@@ -67,22 +90,29 @@ void setup() {
 
 
 
-
+//---------------------------------------------------------------------
 // draw()
 /// Handles all the magic of making the paddles and ball move, checking
 // if the ball has hit a paddle, and displaying everything.
+//---------------------------------------------------------------------
 
 void draw() {
   
  
    if (atStartup) {
+     //----------------------------------
      // The current time, in milliseconds
+     //----------------------------------
      int curTimeMs = millis();
+     //-----------------------------------------
      // The remaining time in the startup period
+     //-----------------------------------------
      int startupTimeRemainingMs = startDelayMs - (curTimeMs - startTimeMs);
      startScreen(startupTimeRemainingMs);
      atStartup = startupTimeRemainingMs > 0;
+     //--------------------------------------------------
      // Short-circuit if we're still in the startup phase.
+     //---------------------------------------------------
      return;
    }
     background(0);
@@ -91,7 +121,7 @@ void draw() {
    text("GO!", 750/2, 750/2);
    
  
- 
+ //-----------------------------------------------------------------------------
  //end of timer
  
     // Fill the background each frame so we have animation
@@ -102,6 +132,8 @@ void draw() {
   //fill(255);
   
   //text("Start PONG Game!",width/2,height/2);
+  
+  //--------------------------------------------
 
 
   // Update the paddles and ball by calling their update methods
