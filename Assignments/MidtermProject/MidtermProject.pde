@@ -15,7 +15,7 @@
 /////----------------------------------------
 // Global variables for the paddles and the ball
 //----------------------------------------------
-//NEWWW///
+//CREEP///
 Smiley smiley;
 
 ///objects///
@@ -82,7 +82,7 @@ void setup() {
   //----------------------------------------------
   ball = new Ball(width/2, height/2);
   
-  ///NEWWWWW////
+  ///CREEP////
    smiley = new Smiley();
 
   
@@ -162,7 +162,7 @@ void draw() {
    gameover.display_gameover_message();
    
    
-  ///NEWW image/// -----------------
+  ///CREEP image/// -----------------
   smiley.update(mouseX, mouseY);
   smiley.display();
   //--------------------
