@@ -15,6 +15,10 @@
 /////----------------------------------------
 // Global variables for the paddles and the ball
 //----------------------------------------------
+//NEWWW///
+Smiley smiley;
+
+///objects///
 Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
@@ -53,7 +57,7 @@ int startTimeMs;
 // Sets the size and creates the paddles and ball //sets up the fonts :
 //------------------------------------------------------------------------
 void setup() {
-  //------------------
+//------------------
   // Set the size
   //------------------
   size(750, 750);
@@ -77,6 +81,10 @@ void setup() {
   // Create the ball at the centre of the screen
   //----------------------------------------------
   ball = new Ball(width/2, height/2);
+  
+  ///NEWWWWW////
+   smiley = new Smiley();
+
   
   //-----------------------------------
   /// TEXT
@@ -107,7 +115,7 @@ void draw() {
      // Short-circuit if we're still in the startup phase.
      return;
    }
-    background(0);
+    background(255);
    fill(240);
    textAlign(CENTER,CENTER);
    text("GO!", 750/2, 750/2);
@@ -150,10 +158,16 @@ void draw() {
    else if (ball.score < 0)
    gameover.display_gameover_message();
    
-
+   if (ball.isOffScreen())
+   gameover.display_gameover_message();
+   
+   
+  ///NEWW image/// -----------------
+  smiley.update(mouseX, mouseY);
+  smiley.display();
+  //--------------------
+}
   
-  }
-
   // Display the paddles and the ball
   leftPaddle.display();
   rightPaddle.display();

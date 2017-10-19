@@ -77,7 +77,7 @@ class Ball {
   }
   
   void resetScore() {
-    score= 25 ;
+    score= 100 ;
   }
   // isOffScreen()
   //

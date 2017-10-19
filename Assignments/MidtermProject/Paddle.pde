@@ -20,7 +20,7 @@ class Paddle {
   int vy;
   
   // The fill color of the paddle
-  color paddleColor = color(255);
+  color paddleColor = color(255,0,0);
 
   // The characters used to make the paddle move up and down, defined in constructor
   char upKey;
