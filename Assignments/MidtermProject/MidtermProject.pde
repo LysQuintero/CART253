@@ -15,6 +15,7 @@
 Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
+Gameover gameover;
 
 // TEXT : font variable (declare)
 PFont f ;
@@ -23,9 +24,14 @@ PFont f ;
 int PADDLE_INSET = 8;
 
 // The background colour during play (black)
-color backgroundColor = color(0);
-
-
+color backgroundColor = color(255,0,0);
+int startTimeMs;
+ // The time until the game starts, in milliseconds
+ // (easy to convert to seconds, sec = ms/1000)
+ final int startDelayMs = 3000;
+ boolean atStartup = true;
+  
+ String displayname;
 
 // setup()
 ////void setup() {
@@ -34,7 +40,10 @@ color backgroundColor = color(0);
 
 void setup() {
   // Set the size
-  size(640, 480);
+  size(750, 750);
+  
+  // Current time, in milliseconds
+ startTimeMs = millis();
 
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y
@@ -49,8 +58,12 @@ void setup() {
   
   /// TEXT
    //size (10,10);
-  f= createFont("Arial",16,true) ; 
+  f= createFont("Arial",16,true); 
+  
+  
 }
+
+
 
 
 // draw()
@@ -58,16 +71,35 @@ void setup() {
 // if the ball has hit a paddle, and displaying everything.
 
 void draw() {
-    // Fill the background each frame so we have animation
-  background(backgroundColor);
   
+ 
+   if (atStartup) {
+     // The current time, in milliseconds
+     int curTimeMs = millis();
+     // The remaining time in the startup period
+     int startupTimeRemainingMs = startDelayMs - (curTimeMs - startTimeMs);
+     startScreen(startupTimeRemainingMs);
+     atStartup = startupTimeRemainingMs > 0;
+     // Short-circuit if we're still in the startup phase.
+     return;
+   }
+    background(0);
+   fill(240);
+   textAlign(CENTER,CENTER);
+   text("GO!", 750/2, 750/2);
+   
+ 
+ 
+ //end of timer
+ 
+    // Fill the background each frame so we have animation
+ //background(backgroundColor);
   
  // FONT: Specify font to be used , then specify font color , then display text
-  textFont(f,16);
-  fill(255);
-  text("PONG!",width/2,height/2);
-
+  //textFont(f,16);
+  //fill(255);
   
+  //text("Start PONG Game!",width/2,height/2);
 
 
   // Update the paddles and ball by calling their update methods
@@ -90,6 +122,8 @@ void draw() {
   //WORKS  : if the numbers of the scores are hits the 0 , reset the ball and the score track.
   if (ball.score < 0)
    ball.resetScore();
+   
+  // gameover.display_gameover_message();
   }
 
   // Display the paddles and the ball
@@ -97,6 +131,17 @@ void draw() {
   rightPaddle.display();
   ball.display();
 }
+
+void startScreen(int remainingTimeMs){
+   background(50);
+   textSize(100);
+   fill(0);
+   textAlign(CENTER,CENTER);
+   // Show the remaining time, in seconds;
+   // show n when there are n or fewer seconds remaining. 
+   text(ceil(remainingTimeMs/1000.0),750/2, 750/2);
+ } 
+
 
 // keyPressed()
 //
