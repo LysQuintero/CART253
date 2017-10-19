@@ -9,7 +9,7 @@ class Ball {
   /////////////// Properties ///////////////
 
   // Default values for speed and size
-  int SPEED = 5;
+  int SPEED = 13;
   int SIZE = 16;
 
   // The location of the ball
@@ -42,7 +42,7 @@ class Ball {
     y = _y;
     vx = SPEED;
     vy = SPEED;
-    score = 10;
+    score = 50;
   }
 
 
