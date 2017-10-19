@@ -1,3 +1,5 @@
+////-------------
+
 // Pong
 //
 // A simple version of Pong using object-oriented programming.
@@ -10,7 +12,7 @@
 // No score display. (Yet!)
 // Pretty ugly. (Now!)
 // Only two paddles. (So far!)
-
+/////----------------------------------------
 // Global variables for the paddles and the ball
 Paddle leftPaddle;
 Paddle rightPaddle;
