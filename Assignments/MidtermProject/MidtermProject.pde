@@ -146,8 +146,11 @@ void draw() {
   //WORKS  : if the numbers of the scores are hits the 0 , reset the ball and the score track.
   if (ball.score < 0)
    ball.resetScore();
+   else if (ball.score < 0)
+   gameover.display_gameover_message();
    
   // gameover.display_gameover_message();
+  
   }
 
   // Display the paddles and the ball
