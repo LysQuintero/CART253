@@ -16,7 +16,7 @@ class Griddie {
   int y;
   int size;
   int energy;
-  color fill = color(255,0,0);
+  color fill = color(255,200,200);
 
   // Griddie(tempX, tempY, tempSize)
   //

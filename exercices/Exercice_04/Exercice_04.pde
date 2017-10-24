@@ -11,6 +11,7 @@
 //And also the will be the option to make explode some “roundies” if they obtain too much energy ( so the will be an energy limit). 
 //The option if the roundies and griddies overlap they explode( or divide in more pieces , basically making more babies)
 //----------------------------------------------------------------------------------------------------------------------------------
+//idea 02 : simplified exercise 
 //
 // A simple artificial life system on a grid. The "griddies" are squares that move
 // around randomly, using energy to do so. They gain energy by overlapping with
