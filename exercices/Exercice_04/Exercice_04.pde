@@ -11,11 +11,12 @@
 //And also the will be the option to make explode some “roundies” if they obtain too much energy ( so the will be an energy limit). 
 //The option if the roundies and griddies overlap they explode( or divide in more pieces , basically making more babies)
 //----------------------------------------------------------------------------------------------------------------------------------
-//idea 02 : simplified exercise 
-//
+//idea 02 : simplified exercise : this time the griddies interact with the roundies . Sadly ,this time , the roundies murder the griddies 
+//---------------------------------
 // A simple artificial life system on a grid. The "griddies" are squares that move
 // around randomly, using energy to do so. They gain energy by overlapping with
 // other griddies. If a griddie loses all its energy it dies.
+//-------------------------------------------
 
 // The size of a single grid element
 int gridSize = 20;
@@ -39,6 +40,15 @@ void setup() {
     int y = floor(random(0, height/gridSize));
     griddies[i] = new Griddie(x * gridSize, y * gridSize, gridSize);
   }
+  
+  // the loop for Roundie : ---------------------
+  
+  for (int k = 0 ; k < roundies. lenght ; k++) {
+    int x = floor(random(0, width /roundSize)0 ;
+    int y = floor (random (0 , height / roundSize)) ;
+    roundies [k] = new Roundie (x2 * roundSize , y * roundSize , roundSize);
+    
+  }
 }
 
 // draw()
@@ -46,7 +56,12 @@ void setup() {
 // Update all the griddies, check for collisions between them, display them.
 
 void draw() {
-  background(50);
+  background(200,255,200,50);
+
+for (int k = 0 ; k < roundies.length ; k ++ ) {
+  roundies[k].update();
+  roundies[k].display();
+  for(int j = 0 ; j < griddies.length ; j
 
   // We need to loop through all the griddies one by one
   for (int i = 0; i < griddies.length; i++) {
