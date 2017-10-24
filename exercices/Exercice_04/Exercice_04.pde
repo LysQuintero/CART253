@@ -1,6 +1,16 @@
 // Griddies
 // by Pippin Barr
-// MODIFIED BY: 
+// MODIFIED BY: Lys Quintero
+
+//-----------------------------------------------------------------------
+//idea 01 : of modification :  This one will have all the same features , 
+//the only thing is that the life continues after the death of the griddies . 
+//So it means that when one griddie or squarie disappears another species surges . 
+//And this one will be the “ roundies “ , those species will the over the last species . 
+//They will have the same behavior , but some of them will reproduce in big /larges quandtities (compared to the griddies). 
+//And also the will be the option to make explode some “roundies” if they obtain too much energy ( so the will be an energy limit). 
+//The option if the roundies and griddies overlap they explode( or divide in more pieces , basically making more babies)
+//----------------------------------------------------------------------------------------------------------------------------------
 //
 // A simple artificial life system on a grid. The "griddies" are squares that move
 // around randomly, using energy to do so. They gain energy by overlapping with
