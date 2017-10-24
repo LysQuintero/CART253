@@ -21,6 +21,8 @@ void setup() {
   frameRate(10);
 
   // QUESTION: What does this for loop do?
+  // A: this LOOP is used to repeat numbers in random position, if the number is less than the //
+  //"griddies array length” then you have to create a new Griddie in a random location. // while passing the values to the class.///
   for (int i = 0; i < griddies.length; i++) {
     int x = floor(random(0, width/gridSize));
     int y = floor(random(0, height/gridSize));
@@ -44,8 +46,11 @@ void draw() {
     // Now go through all the griddies a second time...
     for (int j = 0; j < griddies.length; j++) {
       // QUESTION: What is this if-statement for?
+     // A: it checks if the griddies (j) equals to the opposite (i) // so if its on the opposite it will reacts , otherwise if it's the same ...//
+     // let say "i" touches "i" , it doesn't react as the opposite.
       if (j != i) {
         // QUESTION: What does this line check?
+        //A : A:  this parts seems to call the collide for griddie (j) , it depends on which array…
         griddies[i].collide(griddies[j]);
       }
     }
