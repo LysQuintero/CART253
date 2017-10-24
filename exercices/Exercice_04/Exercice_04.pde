@@ -18,10 +18,12 @@
 // other griddies. If a griddie loses all its energy it dies.
 //-------------------------------------------
 
-// The size of a single grid element
+// The size of a single grid or round element
 int gridSize = 20;
-// An array storing all the griddies
+int roundSize = 10 ;
+// An array storing all the griddies and the roundies
 Griddie[] griddies = new Griddie[100];
+Roundie[] roundies = new Roundie[100];
 
 // setup()
 //
@@ -43,7 +45,7 @@ void setup() {
   
   // the loop for Roundie : ---------------------
   
-  for (int k = 0 ; k < roundies. lenght ; k++) {
+  for (int k = 0 ; k < roundies. length ; k++) {
     int x = floor(random(0, width /roundSize));
     int y = floor (random (0 , height / roundSize)) ;
     roundies [k] = new Roundie (x * roundSize , y * roundSize , roundSize);
