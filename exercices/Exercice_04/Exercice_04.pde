@@ -44,9 +44,9 @@ void setup() {
   // the loop for Roundie : ---------------------
   
   for (int k = 0 ; k < roundies. lenght ; k++) {
-    int x = floor(random(0, width /roundSize)0 ;
+    int x = floor(random(0, width /roundSize));
     int y = floor (random (0 , height / roundSize)) ;
-    roundies [k] = new Roundie (x2 * roundSize , y * roundSize , roundSize);
+    roundies [k] = new Roundie (x * roundSize , y * roundSize , roundSize);
     
   }
 }
@@ -61,7 +61,11 @@ void draw() {
 for (int k = 0 ; k < roundies.length ; k ++ ) {
   roundies[k].update();
   roundies[k].display();
-  for(int j = 0 ; j < griddies.length ; j
+  for(int j = 0 ; j < griddies.length ; j++) {
+    roundies[k].collide(griddies[j]);
+    
+  }
+}
 
   // We need to loop through all the griddies one by one
   for (int i = 0; i < griddies.length; i++) {
