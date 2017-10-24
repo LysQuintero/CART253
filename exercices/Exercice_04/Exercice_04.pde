@@ -19,10 +19,10 @@
 //-------------------------------------------
 
 // The size of a single grid or round element
-int gridSize = 20;
+int gridSize = 10;
 int roundSize = 10 ;
 // An array storing all the griddies and the roundies
-Griddie[] griddies = new Griddie[100];
+Griddie[] griddies = new Griddie[50];
 Roundie[] roundies = new Roundie[100];
 
 // setup()
