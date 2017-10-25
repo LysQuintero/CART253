@@ -17,9 +17,9 @@ void setup() {
   //again declare backgroundcolor.
   background(backgroundColor);
   //this makes exist the "new Bouncer" , sets their class. Then the properties of each bouncer
-  bouncer = new Bouncer(width/2,height/2,2,2,50,color(150,0,0,50),color(255,0,0,50));
-  bouncer2 = new Bouncer(width/2,height/2,-2,2,50,color(0,0,150,50),color(0,0,255,50));
-  bouncer3 = new Bouncer(width/2,height/2,-20,50,10,color(0,200,225,50),color(200,155,0,50));
+  bouncer = new Bouncer(width/2,height/2,2,2,50,color(random(255),random(255),random(255),100),color(random(255),random(255),random(255),0));
+  bouncer2 = new Bouncer(width/2,height/2,-2,2,50,color(random(255),random(255),random(255),200),color(random(255),random(255),random(255),0));
+  bouncer3 = new Bouncer(width/2,height/2,-20,50,10,color(random(255),random(255),random(255),150),color(random(255),random(255),random(255),0));
   
   ///random(-25,25)  //// color(random(0,255));
 }
