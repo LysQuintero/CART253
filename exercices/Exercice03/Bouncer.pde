@@ -1,10 +1,20 @@
+
+//This is a new class , it is defined
 class Bouncer {
   
+  
+  // PROPERTIES///
+  
+  
+ // sets coordinates 
  int x;
  int y;
+ // speed
  int vx;
  int vy;
+ // set the size
  int size;
+ // set color fill , the default color and the hover color 
  color fillColor;
  color defaultColor;
  color hoverColor;
