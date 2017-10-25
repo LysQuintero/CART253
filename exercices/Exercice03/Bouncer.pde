@@ -64,7 +64,7 @@ class Bouncer {
    }
    //if not so it will go back to the original state .
    else {
-     fillColor = defaultColor;
+     fillColor = color (random(100,200),random(100),random(255),random(50));
    }
  }
  // we draw the shape of the bouncer , in this case it's a cir
