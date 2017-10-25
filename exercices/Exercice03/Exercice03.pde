@@ -13,13 +13,13 @@ Bouncer bouncer3 ;
 
 void setup() {
   //this sets the size of the window
-  size(640,480);
+  size(200,1000);
   //again declare backgroundcolor.
   background(backgroundColor);
   //this makes exist the "new Bouncer" , sets their class. Then the properties of each bouncer
-  bouncer = new Bouncer(width/2,height/2,2,2,50,color(random(255),random(255),random(255),100),color(random(255),random(255),random(255),0));
-  bouncer2 = new Bouncer(width/2,height/2,-2,2,50,color(random(255),random(255),random(255),200),color(random(255),random(255),random(255),0));
-  bouncer3 = new Bouncer(width/2,height/2,-20,50,10,color(random(255),random(255),random(255),150),color(random(255),random(255),random(255),0));
+  bouncer = new Bouncer(width/2,height/2,2,2,50,color(random(255),random(255),random(255),100),color(random(255),random(255),random(255),200));
+  bouncer2 = new Bouncer(width/2,height/2,-2,2,45,color(random(255),random(255),random(255),200),color(random(255),random(255),random(255),100));
+  bouncer3 = new Bouncer(width/2,height/2,-20,50,25,color(random(255),random(255),random(255),150),color(random(255),random(255),random(255),0));
   
   ///random(-25,25)  //// color(random(0,255));
 }
