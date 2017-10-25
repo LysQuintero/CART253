@@ -67,7 +67,7 @@ class Bouncer {
      fillColor = defaultColor;
    }
  }
- // we draw the shape of the bouncer , in this case it's a circle/
+ // we draw the shape of the bouncer , in this case it's a cir
  void draw() {
    noStroke();
    fill(fillColor);

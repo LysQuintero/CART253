@@ -3,7 +3,7 @@
 // It contains : definitions of intigers , classes named, running functions.
 
 // this part sets the background color and values
-color backgroundColor = color(200,150,150);
+color backgroundColor = color(random(-150,255),random(255),random(255));
 // this set the name of each bouncer part
 Bouncer bouncer;
 Bouncer bouncer2;
