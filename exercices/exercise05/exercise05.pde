@@ -69,9 +69,9 @@ void draw() {
 /// PET part : this is my pettie behaviour
   float x = width * noise(tx);
   float y = height * noise(ty);
-  ellipse(x,y,20,20);
-  tx += 0.01;
-  ty += 0.01;
+  ellipse(x,y,40,40);
+  tx += 1;
+  ty += 1;
 
 
 for (int k = 0 ; k < roundies.length ; k ++ ) {

@@ -3,8 +3,8 @@ class Pettie {
 
   // Limits for energy level and gains/losses
   int maxEnergy = 255;
-  int moveEnergy = -1;
-  int collideEnergy = 10;
+  int moveEnergy = 10;
+  int collideEnergy = 2;
   
   // Position, size, energy, and fill color
   int x;
@@ -34,9 +34,9 @@ class Pettie {
       return;
     }
     
-    // QUESTION: How does the Griddie movement updating work?
-    int xMoveType = floor(random(-1,2));
-    int yMoveType = floor(random(-1,2));
+    // movement updating 
+    int xMoveType = floor(noise(-1,2));
+    int yMoveType = floor(noise(-1,2));
     x += size * xMoveType;
     y += size * yMoveType;
     
@@ -67,14 +67,14 @@ class Pettie {
   // Checks for collision with the other Griddie
   // and updates energy level
   
-  void collide(Pettie other) {
+  void collide(Pettie griddies) {
     // QUESTION: What is this if-statement for?
-    if (energy == 0 || other.energy == 0) {
+    if (energy == 0 || griddies.energy == 0) {
       return;
     }
     
     // QUESTION: What does this if-statement check?
-    if (x == other.x && y == other.y) {
+    if (x == griddies.x && y == griddies.y) {
       // Increase this Griddie's energy
       energy += collideEnergy;
       // Constrain the energy level to be within bounds
