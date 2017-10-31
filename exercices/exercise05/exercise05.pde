@@ -16,6 +16,9 @@
 // The size of a single grid or round element
 int gridSize = 10;
 int roundSize = 10 ;
+
+//giving time to the noise
+//float t = 3000 ;
 // An array storing all the griddies and the roundies
 Griddie[] griddies = new Griddie[50];
 Roundie[] roundies = new Roundie[100];
