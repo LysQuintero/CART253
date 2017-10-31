@@ -9,11 +9,12 @@
 //TRICKS WITH THIS GRIDDIES AND ROUNDIES
 //----------------------------------------------------------------------------------------------------------------------------------
 //ithe griddies interact with the roundies .The roundies murder the griddies 
-//---------------------------------
+//---------------------------------------------------------------------------
 // 
-//-------------------------------------------
+//---------------------------------------------------------------------------
 
 // The size of a single grid or round element
+//PImage face;
 int gridSize = 10;
 int roundSize = 10 ;
 
@@ -38,6 +39,10 @@ void setup() {
   // Set up the window size and framerate (lower so we can watch easier)
   size(640, 480);
   frameRate(10);
+}
+/// trying to replace the Pettie by an image
+ // face = loadImage("test.png");
+//}
 
   // QUESTION: What does this for loop do?
   // A: this LOOP is used to repeat numbers in random position, if the number is less than the //
@@ -69,9 +74,10 @@ void draw() {
 /// PET part : this is my pettie behaviour
   float x = width * noise(tx);
   float y = height * noise(ty);
-  ellipse(x,y,40,40);
+  //image(face,x,y,20,20);
+  ellipse(x,y,20,20);
   tx += 1;
-  ty += 1;
+  ty += 0.01;
 
 
 for (int k = 0 ; k < roundies.length ; k ++ ) {
