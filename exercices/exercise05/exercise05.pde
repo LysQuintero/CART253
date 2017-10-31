@@ -20,8 +20,8 @@ int roundSize = 10 ;
 ///float for Pet
 float x ;
 float y ;
-float tx = random(0,100);
-float ty = random(0,100);
+float tx = noise(0,100);
+float ty = noise(0,100);
 float easing = 0.05;
 
 
@@ -70,10 +70,10 @@ void draw() {
 
 
  /// PET part : this is my pettie behaviour
-  float x = width/2 * noise(tx);
-  float y = height/2 * noise(ty);
-  ellipse(x,y,40,40);
-  tx += 0.1;
+  float x = width * noise(tx);
+  float y = height * noise(ty);
+  ellipse(x,y,100,100);
+  tx += 0.01;
   ty += 0.01;
   
 ///-----------------------------
@@ -88,7 +88,7 @@ void draw() {
   float dy = targetY - y;
   y += dy * easing;
   
-  ellipse(x, y, 20, 20);
+  ellipse(x, y, 40, 40);
 
 
 
