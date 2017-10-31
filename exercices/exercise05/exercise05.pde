@@ -17,7 +17,11 @@
 int gridSize = 10;
 int roundSize = 10 ;
 
-///
+///float for Pet
+
+float tx = random(0,100);
+float ty = random(0,100);
+
 
 //giving time to the noise
 //float t = 3000 ;
@@ -60,6 +64,15 @@ void setup() {
 
 void draw() {
   background(noise(255),random(255),random(200),random(50));
+  
+ 
+/// PET part : this is my pettie behaviour
+  float x = width * noise(tx);
+  float y = height * noise(ty);
+  ellipse(x,y,20,20);
+  tx += 0.01;
+  ty += 0.01;
+
 
 for (int k = 0 ; k < roundies.length ; k ++ ) {
   roundies[k].update();
