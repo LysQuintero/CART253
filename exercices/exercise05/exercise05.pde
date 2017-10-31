@@ -18,9 +18,11 @@ int gridSize = 10;
 int roundSize = 10 ;
 
 ///float for Pet
-
+float x ;
+float y ;
 float tx = random(0,100);
 float ty = random(0,100);
+float easing = 0.05;
 
 
 //giving time to the noise
@@ -38,6 +40,7 @@ void setup() {
   // Set up the window size and framerate (lower so we can watch easier)
   size(640, 480);
   frameRate(10);
+  noStroke ();
 
   // QUESTION: What does this for loop do?
   // A: this LOOP is used to repeat numbers in random position, if the number is less than the //
@@ -64,14 +67,31 @@ void setup() {
 
 void draw() {
   background(noise(255),random(255),random(200),random(50));
-  
- 
-/// PET part : this is my pettie behaviour
+
+
+ /// PET part : this is my pettie behaviour
   float x = width/2 * noise(tx);
   float y = height/2 * noise(ty);
   ellipse(x,y,40,40);
   tx += 0.1;
   ty += 0.01;
+  
+///-----------------------------
+//circle that follows mouse
+//----------------------------
+
+ float targetX = mouseX;
+  float dx = targetX - x;
+  x += dx * easing;
+  
+  float targetY = mouseY;
+  float dy = targetY - y;
+  y += dy * easing;
+  
+  ellipse(x, y, 20, 20);
+
+
+
 
 ///pettie
 //for (int o = 0 ; o < petties.length ; o ++ ) {
@@ -86,7 +106,7 @@ for (int k = 0 ; k < roundies.length ; k ++ ) {
   for(int j = 0 ; j < griddies.length ; j++) {
     roundies[k].collide(griddies[j]);
     
- // }
+// }
 }
 }
   // We need to loop through all the griddies one by one
