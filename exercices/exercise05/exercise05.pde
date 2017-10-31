@@ -67,22 +67,28 @@ void draw() {
   
  
 /// PET part : this is my pettie behaviour
-  float x = width * noise(tx);
-  float y = height * noise(ty);
+  float x = width/2 * noise(tx);
+  float y = height/2 * noise(ty);
   ellipse(x,y,40,40);
   tx += 0.1;
   ty += 0.01;
 
-
+///pettie
+//for (int o = 0 ; o < petties.length ; o ++ ) {
+// petties[o].update();
+// petties[o].display();
+  
+  
+//the rest
 for (int k = 0 ; k < roundies.length ; k ++ ) {
   roundies[k].update();
   roundies[k].display();
   for(int j = 0 ; j < griddies.length ; j++) {
     roundies[k].collide(griddies[j]);
     
-  }
+ // }
 }
-
+}
   // We need to loop through all the griddies one by one
   for (int i = 0; i < griddies.length; i++) {
 
