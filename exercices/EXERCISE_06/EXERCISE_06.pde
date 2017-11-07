@@ -9,6 +9,8 @@ Paddle rightPaddle;
 
 int PADDLE_INSET = 8;
 
+color backgroundColor = color(noise(255));
+
 
 // Import the video library
 import processing.video.*;
@@ -22,7 +24,8 @@ Capture video;
 PVector brightestPixel = new PVector(-1,-1);
 
 // An array of bouncers to play with
-Bouncer[] bouncers = new Bouncer[10];
+Bouncer[] bouncers = new Bouncer[20];
+Mover[] movers = new Mover[20];
 
 
 // setup()
@@ -31,7 +34,7 @@ Bouncer[] bouncers = new Bouncer[10];
 
 void setup() {
   size(640, 480);
-  background (0);
+  
   
   
    leftPaddle = new Paddle(PADDLE_INSET, height/2, '1', 'q');
@@ -42,6 +45,10 @@ void setup() {
   for (int i = 0; i < bouncers.length; i++) {
     // Each Bouncer just starts with random values 
     bouncers[i] = new Bouncer(random(0,width),random(0,height),random(-10,10),random(-10,10),random(20,50),color(random(255)));
+  }
+  
+   for (int i = 0; i < movers.length; i++) {
+    movers[i] = new Mover(); 
   }
   
   // Start up the webcam
@@ -56,6 +63,8 @@ void setup() {
 // do something much more interesting in order to actually interact with the Bouncers.
 
 void draw() {
+  
+  background (backgroundColor); 
   // A function that processes the current frame of video
   handleVideoInput();
 
@@ -74,11 +83,16 @@ void draw() {
   for (int i = 0; i < bouncers.length; i++) {
    bouncers[i].update();
    bouncers[i].display();
+   
+    for (int k = 0; k < movers.length; k++) {
+    movers[k].update();
+    movers[k].display(); 
+  }
   }
   
   // For now we just draw a crappy ellipse at the brightest pixel
-  fill(#ff0000);
-  stroke(#ffff00);
+  fill(#fff000);
+  stroke(#fffff0);
   strokeWeight(10);
   ellipse(brightestPixel.x,brightestPixel.y,20,20);
 }
@@ -124,4 +138,22 @@ void handleVideoInput() {
       }
     }
   }
+}
+
+/////PADDLES 
+
+void keyPressed() {
+  // Just call both paddles' own keyPressed methods
+  leftPaddle.keyPressed();
+  rightPaddle.keyPressed();
+}
+
+// keyReleased()
+//
+// As for keyPressed, except for released!
+
+void keyReleased() {
+  // Call both paddles' keyReleased methods
+  leftPaddle.keyReleased();
+  rightPaddle.keyReleased();
 }

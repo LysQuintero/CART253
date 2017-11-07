@@ -78,5 +78,7 @@ class Bouncer {
     noStroke();
     fill(fillColor);
     ellipse(x, y, size, size);
+    
+   
   }
 }
