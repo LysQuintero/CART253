@@ -2,6 +2,14 @@
 //
 // Using the webcam as input to play with Bouncers.
 
+//Global variables :
+
+Paddle leftPaddle;
+Paddle rightPaddle;
+
+int PADDLE_INSET = 8;
+
+
 // Import the video library
 import processing.video.*;
 
@@ -16,12 +24,18 @@ PVector brightestPixel = new PVector(-1,-1);
 // An array of bouncers to play with
 Bouncer[] bouncers = new Bouncer[10];
 
+
 // setup()
 //
 // Creates the bouncers and starts the webcam
 
 void setup() {
   size(640, 480);
+  background (0);
+  
+  
+   leftPaddle = new Paddle(PADDLE_INSET, height/2, '1', 'q');
+  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, '0', 'p');
 
   // Our old friend the for-loop used to go through the length of an
   // array adding new objects to it (Bouncers in this case)
@@ -47,6 +61,11 @@ void draw() {
 
   // Draw the video frame to the screen
   image(video, 0, 0);
+  
+  //PADDLE UPDATE
+  
+   leftPaddle.update();
+  rightPaddle.update();
   
   // Our old friend the for-loop running through the length of an array to
   // update and display objects, in this case Bouncers.
