@@ -26,6 +26,10 @@ PVector brightestPixel = new PVector(-1,-1);
 // An array of bouncers to play with
 Bouncer[] bouncers = new Bouncer[20];
 Mover[] movers = new Mover[20];
+Ball[] balls =  { 
+  new Ball(100, 400, 20), 
+  new Ball(700, 400, 80) 
+};
 
 
 // setup()
@@ -75,6 +79,17 @@ void draw() {
   
    leftPaddle.update();
   rightPaddle.update();
+  
+  
+    for (Ball b : balls) {
+    b.update();
+    b.display();
+    b.checkBoundaryCollision();
+  }
+  
+  balls[0].checkCollision(balls[1]);
+
+
   
   // Our old friend the for-loop running through the length of an array to
   // update and display objects, in this case Bouncers.
