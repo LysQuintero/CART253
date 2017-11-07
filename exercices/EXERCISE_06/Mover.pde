@@ -37,9 +37,9 @@ class Mover {
   }
 
   void display() {
-    stroke(0);
-    strokeWeight(2);
-    fill(127,200);
+    stroke(random(255),200,50);
+    strokeWeight(random(5));
+    fill(random(255),random(200),random(50),50);
     ellipse(position.x,position.y,48,48);
   }
 
