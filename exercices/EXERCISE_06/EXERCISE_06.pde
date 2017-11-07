@@ -2,6 +2,8 @@
 //
 // Using the webcam as input to play with Bouncers.
 
+//the objects bouncer , ball , mover should interact with each other.
+
 //Global variables :
 
 Paddle leftPaddle;
