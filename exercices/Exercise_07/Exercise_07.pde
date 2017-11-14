@@ -65,8 +65,8 @@ void draw() {
   
   //show the PShape(s)
   
-  shape(a, 20, 90 ,100,100);  // Draw at coordinate (110, 90) at size 100 x 100
-  shape(b, 650,600,100,100);            // Draw at coordinate (280, 40) at the default size
+  shape(a, mouseX, mouseY ,100,100);  // Draw at coordinate (110, 90) at size 100 x 100
+  shape(b, 100,600,100,100);            // Draw at coordinate (280, 40) at the default size
   shape(c ,500,200,100,100);
   shape(d ,125,200,100,100);
   shape(e ,50 ,20,100,100);
@@ -87,6 +87,10 @@ void mousePressed() {;
  } 
     if (punch.contains(mouseX, mouseY)) {
       punch.ring();
+      
   }
+  
+  //if (shape e contains (mouseX, mouseY)) {
+    
   
 }
