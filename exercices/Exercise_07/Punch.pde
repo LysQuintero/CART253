@@ -1,4 +1,4 @@
-// A class to describe a "doorbell" (really a button)
+// A class to describe a "punch" (really a button)
 class Punch {
   // Location and size
   float x;
@@ -6,7 +6,7 @@ class Punch {
   float r;
   SoundFile sound;
 
-  // Create the doorbell
+  // Create the hbeat
   Punch(float x_, float y_, float r_, String filename_, PApplet sketch) {
     x = x_;
     y = y_;
@@ -14,7 +14,7 @@ class Punch {
     sound = new SoundFile(sketch, filename_);
   }
 
-  // Is a point inside the doorbell? (used for mouse rollover, etc.)
+  // Is a point inside the hbeat? (used for mouse rollover, etc.)
   boolean contains(float mx, float my) {
     if (dist(mx, my, x, y) < r/2) {
       return true;
@@ -27,7 +27,7 @@ class Punch {
     sound.play();
   }
 
-  // Show the doorbell (hardcoded colors, could be improved)
+  // Show the hbeat (hardcoded colors, could be improved)
   void display(float mx, float my) {
     if (contains(mx, my)) {
       fill(100);

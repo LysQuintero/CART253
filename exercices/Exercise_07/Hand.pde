@@ -1,7 +1,21 @@
-class Hand {
+//class Hand {
   
-  float x;
-  float y;
-  float r;
+//Hand hh = new Spaceship();
   
-  //LoadImage, 
+//PImage img = loadImage ("hand.png") ;
+  
+  
+  
+  //float x;
+  //float y;
+  ///float r;
+  
+//PImage img;
+
+//void setup() {
+  //img = loadImage("laDefense.jpg");
+//}
+
+//void draw() {
+ // image(img, 0, 0);
+//}
