@@ -1,5 +1,5 @@
 // A class to describe a "doorbell" (really a button)
-class Hbeat {
+class Punch {
   // Location and size
   float x;
   float y;
@@ -7,7 +7,7 @@ class Hbeat {
   SoundFile sound;
 
   // Create the doorbell
-  Hbeat(float x_, float y_, float r_, String filename_, PApplet sketch) {
+  Punch(float x_, float y_, float r_, String filename_, PApplet sketch) {
     x = x_;
     y = y_;
     r = r_;
