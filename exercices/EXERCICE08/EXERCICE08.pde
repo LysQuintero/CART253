@@ -2,9 +2,9 @@
 // IN THIS PROTOTYPE ,I'M TRYING TO EXPLORE THE SHAPE THAT WILL BE IN MY GAME.
 //
 
+Shapie shapie ; 
 
-
-
+Shapie [] shapies = new Shapie [2] ;
 
 ArrayList<PVector> anchorPoints; //store the anchor points
 ArrayList<PVector> controlPoints; //store the control points
@@ -36,6 +36,11 @@ void draw() {
   background(255);
   stroke(0);
   noFill();
+  
+  ////shapie.display();
+  ///shapie.update();
+  shapie.display(); 
+  
   //draw the current Bezier curve, see Processing reference on bezierVertex();
   if (anchorPoints.size()>0) {
     beginShape();
@@ -117,6 +122,8 @@ void keyPressed(){
 }
  
 void mousePressed() {
+  
+  //this part it's to save the mouse position
   savedMouse.x = mouseX;  //Save the mouse position;
   savedMouse.y = mouseY;
 
@@ -164,6 +171,7 @@ void leftMouse() {
 void rightMouse() {
   if (DRAWING==true) {
     println("Ending curve.");
+    println("Current saved mouse position: " + savedMouse.x + ", " + savedMouse.y); //Print the saved mouse position
     DRAWING=false ;
   }
 }
