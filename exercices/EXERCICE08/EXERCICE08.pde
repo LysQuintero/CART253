@@ -39,7 +39,7 @@ void draw() {
   
   ////shapie.display();
   ///shapie.update();
-  shapie.display(); 
+  //shapie.display(); 
   
   //draw the current Bezier curve, see Processing reference on bezierVertex();
   if (anchorPoints.size()>0) {
