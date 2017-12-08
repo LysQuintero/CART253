@@ -30,7 +30,7 @@ final float FRICTION = 0.999;
 // for this part the final its not longer there because we want to use this MOUSE REPEL and COHESION WEIGHT (attraction to the center) later on
 //if we ever wanted to use these other values or modify them according to the sound , we would need to take off the final
 // Ideas : to obtain more movement according to the sound , or make sound reactive vectors/shapes:
-// Change the MAX_VEL or the THRESH....
+// Change the MAX_VEL or the THRESH or FRICTION ABOVE....
 
  float MOUSE_REPEL =100;
 final float MAX_VEL = 15;
@@ -116,7 +116,7 @@ void draw() {
 
     mbPos[i].add(mbVel[i]);
 
-    //bounce
+    //bounce effect
     if(mbPos[i].x > width) {
       mbPos[i].x = width;
       mbVel[i].x *= -1.0;
