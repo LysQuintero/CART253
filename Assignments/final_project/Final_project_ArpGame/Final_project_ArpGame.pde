@@ -26,6 +26,12 @@ PVector[] mbVel = new PVector[NUM_BALLS];
 float[] mbRadius = new float[NUM_BALLS];
 float sum = 0.0;
 final float FRICTION = 0.999;
+
+// for this part the final its not longer there because we want to use this MOUSE REPEL and COHESION WEIGHT (attraction to the center) later on
+//if we ever wanted to use these other values or modify them according to the sound , we would need to take off the final
+// Ideas : to obtain more movement according to the sound , or make sound reactive vectors/shapes:
+// Change the MAX_VEL or the THRESH....
+
  float MOUSE_REPEL =100;
 final float MAX_VEL = 15;
  float COHESION_WEIGHT = 0.05;
@@ -50,6 +56,7 @@ void setup() {
     mbRadius[i] = random(90,140);
   }
   
+  //SOUND PART // load the files
     minim = new Minim(this);
   jingle = minim.loadFile("jingle.mp3", 1024);
   fftLin = new FFT( jingle.bufferSize(), jingle.sampleRate() );
@@ -71,6 +78,9 @@ void draw() {
     }
      averageSample = averageSample/ fftLin.specSize();
      println(averageSample);
+     
+     /// this part we say that the cohesion weight aka the balls will move towards the center according to
+     //the values that we are getting in the averageSample of the sound FFT frequency.
      COHESION_WEIGHT = averageSample;
     
   //println(frameRate);
@@ -151,12 +161,12 @@ void draw() {
         break;
       case '2':
         //White
-        set(i,j,color(0,0,sum*sum*sum/2));
+        set(i,j,color(200,255,sum*sum*sum/2));
         break;
       case '1':
       default : 
         //Red      
-        set(i,j,color(360,100,(sum*sum*sum)/3));
+        set(i,j,color(200,100,(sum*sum*sum)/4));
         break;
       }
     }
