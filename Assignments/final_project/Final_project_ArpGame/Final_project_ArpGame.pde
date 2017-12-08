@@ -57,3 +57,108 @@ void setup() {
   
   frameRate(24);
 }
+
+
+void draw() {
+  
+  fftLin.forward( jingle.mix );
+  float averageSample =0;
+  for(int i = 0; i < fftLin.specSize(); i++)
+    {
+      
+     averageSample+=fftLin.getBand(i)*spectrumScale;
+     // line(i, height/3, i, height/3 - fftLin.getBand(i)*spectrumScale);
+    }
+     averageSample = averageSample/ fftLin.specSize();
+     println(averageSample);
+     COHESION_WEIGHT = averageSample;
+    
+  //println(frameRate);
+  
+  //update meta ball positions
+  for(int i=0;i<NUM_BALLS;i++) {
+    //mouse?
+    if(mousePressed) {
+      m.set(mouseX,mouseY,0);
+      mDistance = PVector.dist(mbPos[i],m);
+      repel = PVector.sub(mbPos[i],m);
+      repel.normalize();
+      repel.mult(MOUSE_REPEL/(mDistance*mDistance));
+      mbVel[i].add(repel);
+    }
+
+    centre.add(mbPos[i]);
+
+    mbVel[i].mult(FRICTION);
+
+    mbVel[i].limit(MAX_VEL);
+  }
+
+  centre.div(NUM_BALLS);
+
+  for(int i=0;i<NUM_BALLS;i++) {
+
+    //tendancy to go to centre
+    c = PVector.sub(centre,mbPos[i]);
+    c.normalize();
+    c.mult(COHESION_WEIGHT);
+    mbVel[i].add(c);
+
+    mbPos[i].add(mbVel[i]);
+
+    //bounce
+    if(mbPos[i].x > width) {
+      mbPos[i].x = width;
+      mbVel[i].x *= -1.0;
+    }
+    if(mbPos[i].x < 0) {
+      mbPos[i].x = 0;
+      mbVel[i].x *= -1.0;
+    }
+    if(mbPos[i].y > height) {
+      mbPos[i].y = height;
+      mbVel[i].y *= -1.0;
+    }
+    if(mbPos[i].y < 0) {
+      mbPos[i].y = 0;
+      mbVel[i].y *= -1.0;
+    }
+  }
+  //draw stuff
+  background(random(255,255));
+  for(int i=0; i<width; i++) {
+    for(int j=0; j<height; j++) {
+      sum = 0; 
+      for(int m=0; m<NUM_BALLS; m++) {
+        sum += mbRadius[m] / sqrt(sq(i-mbPos[m].x) + sq(j-mbPos[m].y));
+      }
+      switch(key) {
+      case '4':
+        //random colors
+        if(sum >= THRESH_1 && sum <= THRESH_2) {
+          set(i,j,color(155,100,62)); //chose color
+        }
+        else if(sum > THRESH_2 && sum <= THRESH_3) {
+          set(i,j,color(0,noise(255),random(100))); //chose color or make it random 
+        }
+        else if( sum > THRESH_3 && sum <= THRESH_4) {
+          set(i,j,color(random(200),random(200),random(96))); //chose color or make it random
+        }
+        break;
+      case '3':
+        //Psychadelic
+        set(i,j,color(sum*sum*sum/100,100,255));
+        break;
+      case '2':
+        //White
+        set(i,j,color(0,0,sum*sum*sum/2));
+        break;
+      case '1':
+      default : 
+        //Red      
+        set(i,j,color(360,100,(sum*sum*sum)/3));
+        break;
+      }
+    }
+  }
+}
