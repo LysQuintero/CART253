@@ -142,6 +142,8 @@ void draw() {
       for(int m=0; m<NUM_BALLS; m++) {
         sum += mbRadius[m] / sqrt(sq(i-mbPos[m].x) + sq(j-mbPos[m].y));
       }
+      
+      ///keys 1 ,2, 3, 4 : used to change in different modes of display 
       switch(key) {
       case '4':
         //random colors
