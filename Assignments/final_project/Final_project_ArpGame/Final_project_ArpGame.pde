@@ -161,7 +161,7 @@ void draw() {
         break;
       case '3':
         //Psychadelic
-        set(i,j,color(sum*sum*sum/100,100,255));
+        set(i,j,color(sum*sum*sum/10,100,255));
         break;
       case '2':
         //White
@@ -170,7 +170,7 @@ void draw() {
       case '1':
       default : 
         //Red      
-        set(i,j,color(200,100,(sum*sum*sum)/4));
+        set(i,j,color(200,5,(sum*sum*sum)/4));
         break;
       }
     }
