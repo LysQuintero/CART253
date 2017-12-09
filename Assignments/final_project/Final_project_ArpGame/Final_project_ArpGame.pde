@@ -19,11 +19,11 @@ FFT fftLog;
  //- Use number keys 1 to 4 to change the display.
 // - Click and hold the mouse button amongst the blobs to make them scatter.
 
-
-final int NUM_BALLS = 10;
+final int RADIUS_NUM = 50;
+final int NUM_BALLS = 6;
 PVector[] mbPos = new PVector[NUM_BALLS];
 PVector[] mbVel = new PVector[NUM_BALLS];
-float[] mbRadius = new float[NUM_BALLS];
+float[] mbRadius = new float[RADIUS_NUM];
 float sum = 0.0;
 final float FRICTION = 0.999;
 
