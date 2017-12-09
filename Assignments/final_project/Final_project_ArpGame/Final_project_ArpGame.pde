@@ -28,20 +28,20 @@ FFT fftLog;
 // - Click and hold the mouse button amongst the blobs to make them scatter.
 
 final int RADIUS_NUM = 100 ;
-final int NUM_BALLS = 6;
+final int NUM_BALLS = 10;
 PVector[] mbPos = new PVector[NUM_BALLS];
 PVector[] mbVel = new PVector[NUM_BALLS];
 float[] mbRadius = new float[RADIUS_NUM];
-float sum = 0.5;
-final float FRICTION = 0.999;
+float sum = 1;
+final float FRICTION = 1.00001;
 
 // for this part the final its not longer there because we want to use this MOUSE REPEL and COHESION WEIGHT (attraction to the center) later on
 //if we ever wanted to use these other values or modify them according to the sound , we would need to take off the final
 // Ideas : to obtain more movement according to the sound , or make sound reactive vectors/shapes:
 // Change the MAX_VEL or the THRESH or FRICTION ABOVE....
 
- final float MOUSE_REPEL = 100000;
-final float MAX_VEL = 100;
+float MOUSE_REPEL = 100;
+final float MAX_VEL = 50;
  float COHESION_WEIGHT = 0.05;
 final float THRESH_1 = 5; 
 final float THRESH_2 = 5.5;
@@ -61,7 +61,7 @@ void setup() {
   colorMode(HSB,360,100,100);
   size(600, 800, P2D);
   for(int i=0; i< NUM_BALLS; i++) {
-    mbPos[i] = new PVector(random(0,width),random(0,height));
+    mbPos[i] = new PVector(random(0,width/2),random(0,height/2));
     mbVel[i] = new PVector(random(-1,1),random(-1,1));
     mbRadius[i] = random(10,200);
   }
@@ -97,7 +97,7 @@ void draw() {
      
      /// this part we say that the cohesion weight aka the balls will move towards the center according to
      //the values that we are getting in the averageSample of the sound FFT frequency.
-    // COHESION_WEIGHT = averageSample;
+     COHESION_WEIGHT = averageSample;
     // THRESH_4 = averageSample;
     
     
@@ -124,7 +124,7 @@ void draw() {
     mbVel[i].limit(MAX_VEL);
   }
 
-  centre.div(NUM_BALLS);
+  //centre.div(NUM_BALLS);
   
   ///added but might not be necesary
   ///centre.mult(NUM_BALLS);
@@ -170,7 +170,22 @@ void draw() {
       
       /////
       switch(key) {
-      case '4':
+      case '1':
+      default : 
+        //Red      
+        set(i,j,color(200,5,(sum*sum*sum)/4));
+        break;
+        
+       case '3':
+        //Psychadelic
+        set(i,j,color(sum*sum*sum/10,100,255));
+        break;
+      case '2':
+        //White
+        set(i,j,color(200,255,sum*sum*sum/2));
+        break;
+        
+     case '4':
         //random colors
         if(sum >= THRESH_1 && sum <= THRESH_2) {
           set(i,j,color(155,100,62)); //chose color
@@ -181,19 +196,6 @@ void draw() {
         else if( sum > THRESH_3 && sum <= THRESH_4) {
           set(i,j,color(random(200),random(200),random(96))); //chose color or make it random
         }
-        break;
-      case '3':
-        //Psychadelic
-        set(i,j,color(sum*sum*sum/10,100,255));
-        break;
-      case '2':
-        //White
-        set(i,j,color(200,255,sum*sum*sum/2));
-        break;
-      case '1':
-      default : 
-        //Red      
-        set(i,j,color(200,5,(sum*sum*sum)/4));
         break;
       }
     }
