@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 
 
 Minim minim;  
-AudioPlayer she;
+AudioPlayer meditative;
 FFT fftLin;
 FFT fftLog;
 
@@ -45,7 +45,9 @@ PVector c = new PVector();
 PVector repel = new PVector();
 float mDistance;
 PVector centre = new PVector(0,0);
-float spectrumScale =1;
+
+//MAP OF values we get by the frequency
+float spectrumScale = 0.05;
 
 void setup() {
   colorMode(HSB,360,100,100);
@@ -58,9 +60,9 @@ void setup() {
   
   //SOUND PART // load the files
     minim = new Minim(this);
-  she = minim.loadFile("she.mp3", 1024);
-  fftLin = new FFT( she.bufferSize(), she.sampleRate() );
-  she.loop();
+  meditative = minim.loadFile("meditative.mp3", 1024);
+  fftLin = new FFT( meditative.bufferSize(), meditative.sampleRate() );
+  meditative.loop();
   
   frameRate(24);
 }
@@ -70,7 +72,7 @@ void draw() {
   
   //in this part the vector changes according to the sound frequency
   
-  fftLin.forward( she.mix );
+  fftLin.forward( meditative.mix );
   float averageSample =0;
   for(int i = 0; i < fftLin.specSize(); i++)
     {
