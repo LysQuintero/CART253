@@ -1,3 +1,11 @@
+// december 8th issues , when I added the sound reactive features , I seeems to respond well . 
+//When it starts running , it runs fine I can control my metaball repulsion by the mouse hold/click
+//But the more the music continues the less I can control the shapes with the mouse , It seems like the 
+//the sound has taken control completely of the movement of the metaballs ,I cannot use the mouse click any more.
+//the they seem to tend to go to the bottom right all the time
+
+
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -19,7 +27,7 @@ FFT fftLog;
  //- Use number keys 1 to 4 to change the display.
 // - Click and hold the mouse button amongst the blobs to make them scatter.
 
-final int RADIUS_NUM = 10 ;
+final int RADIUS_NUM = 100 ;
 final int NUM_BALLS = 6;
 PVector[] mbPos = new PVector[NUM_BALLS];
 PVector[] mbVel = new PVector[NUM_BALLS];
