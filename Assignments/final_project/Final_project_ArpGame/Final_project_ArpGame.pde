@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 
 
 Minim minim;  
-AudioPlayer jingle;
+AudioPlayer she;
 FFT fftLin;
 FFT fftLog;
 
@@ -19,7 +19,7 @@ FFT fftLog;
  //- Use number keys 1 to 4 to change the display.
 // - Click and hold the mouse button amongst the blobs to make them scatter.
 
-final int RADIUS_NUM = 50;
+final int RADIUS_NUM = 10 ;
 final int NUM_BALLS = 6;
 PVector[] mbPos = new PVector[NUM_BALLS];
 PVector[] mbVel = new PVector[NUM_BALLS];
@@ -58,9 +58,9 @@ void setup() {
   
   //SOUND PART // load the files
     minim = new Minim(this);
-  jingle = minim.loadFile("jingle.mp3", 1024);
-  fftLin = new FFT( jingle.bufferSize(), jingle.sampleRate() );
-  jingle.loop();
+  she = minim.loadFile("she.mp3", 1024);
+  fftLin = new FFT( she.bufferSize(), she.sampleRate() );
+  she.loop();
   
   frameRate(24);
 }
@@ -68,7 +68,7 @@ void setup() {
 
 void draw() {
   
-  fftLin.forward( jingle.mix );
+  fftLin.forward( she.mix );
   float averageSample =0;
   for(int i = 0; i < fftLin.specSize(); i++)
     {
