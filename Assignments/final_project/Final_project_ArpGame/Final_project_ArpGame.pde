@@ -32,26 +32,26 @@ final float FRICTION = 0.999;
 // Ideas : to obtain more movement according to the sound , or make sound reactive vectors/shapes:
 // Change the MAX_VEL or the THRESH or FRICTION ABOVE....
 
- float MOUSE_REPEL =100;
-final float MAX_VEL = 15;
- float COHESION_WEIGHT = 0.05;
+ final float MOUSE_REPEL = 1000;
+final float MAX_VEL = 10;
+ float COHESION_WEIGHT = 100;
 final float THRESH_1 = 5; 
 final float THRESH_2 = 5.5;
-final float THRESH_3 = 6;
+final float THRESH_3 = 5;
 final float THRESH_4 = 7;
 PVector u = new PVector();
 PVector m = new PVector();
 PVector c = new PVector();
 PVector repel = new PVector();
 float mDistance;
-PVector centre = new PVector(0,0);
+PVector centre = new PVector(height , width);
 
 //MAP OF values we get by the frequency
-float spectrumScale = 0.05;
+float spectrumScale = 0.5;
 
 void setup() {
   colorMode(HSB,360,100,100);
-  size(800, 800, P2D);
+  size(600, 800, P2D);
   for(int i=0; i< NUM_BALLS; i++) {
     mbPos[i] = new PVector(random(0,width),random(0,height));
     mbVel[i] = new PVector(random(-1,1),random(-1,1));
@@ -62,7 +62,7 @@ void setup() {
     minim = new Minim(this);
   meditative = minim.loadFile("meditative.mp3", 1024);
   fftLin = new FFT( meditative.bufferSize(), meditative.sampleRate() );
-  meditative.loop();
+  meditative.play();
   
   frameRate(24);
 }
@@ -86,6 +86,7 @@ void draw() {
      /// this part we say that the cohesion weight aka the balls will move towards the center according to
      //the values that we are getting in the averageSample of the sound FFT frequency.
      COHESION_WEIGHT = averageSample;
+    // THRESH_4 = averageSample;
     
   //println(frameRate);
   
@@ -109,6 +110,9 @@ void draw() {
   }
 
   centre.div(NUM_BALLS);
+  
+  ///added but might not be necesary
+  centre.mult(NUM_BALLS);
 
   for(int i=0;i<NUM_BALLS;i++) {
 
