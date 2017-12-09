@@ -68,6 +68,8 @@ void setup() {
 
 void draw() {
   
+  //in this part the vector changes according to the sound frequency
+  
   fftLin.forward( she.mix );
   float averageSample =0;
   for(int i = 0; i < fftLin.specSize(); i++)
